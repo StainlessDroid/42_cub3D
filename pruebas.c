@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 01:59:48 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/17 21:54:21 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/18 01:15:05 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,11 @@ int     add_shade(double distance, int color)
 
     transparency = get_t(color);
 
-    if (distance != 0)
-        transparency /= distance;
+    if (distance > 0 && distance <= 1)
+        transparency *= distance;
+    else if (!distance)
+        transparency = 0;
     new_color = create_trgb(transparency, get_r(color), get_g(color),
      get_b(color));
      return (new_color);
-}
-
-int main()
-{
-    void    *mlx_ptr;
-    void    *win_ptr;
-
-    mlx_ptr = mlx_init();
-    win_ptr = mxl_new_window(mlx_ptr, 500, 500, "mlx_test");
-    mlx_loop(mlx_ptr);
 }

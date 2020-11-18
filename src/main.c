@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 02:36:14 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/18 01:15:38 by mpascual         ###   ########.fr       */
+/*   Created: 2020/11/18 01:10:24 by mpascual          #+#    #+#             */
+/*   Updated: 2020/11/18 01:19:34 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-# include <math.h>
-# include "mlx_linux/mlx.h"
-# include "libft_printf/header.h"
+#include "../cub3d.h"
 
-int         create_trgb(int t, int r, int g, int b);
-int         get_t(int trgb);
-int         get_r(int trgb);
-int         get_g(int trgb);
-int         get_b(int trgb);
-int         add_shade(double distance, int color);
+int main(void)
+{
+    void    *mlx;
+    void    *win;
 
-#endif
+    mlx = mlx_init();
+    win = mlx_new_window(mlx, 500, 500, "mlx_test");
+    mlx_loop(mlx);
+    free(win);
+    return (0);
+}
