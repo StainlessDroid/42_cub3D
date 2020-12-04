@@ -6,21 +6,35 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 02:36:14 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/18 01:15:38 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/12/03 02:49:40 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 # include <math.h>
-# include "mlx_linux/mlx.h"
+# include <mlx.h>
 # include "libft_printf/header.h"
 
-int         create_trgb(int t, int r, int g, int b);
-int         get_t(int trgb);
-int         get_r(int trgb);
-int         get_g(int trgb);
-int         get_b(int trgb);
-int         add_shade(double distance, int color);
+typedef struct  s_vars
+{
+    void        *mlx;
+    void        *win;
+    char        *cub_path;
+    int         width;
+    int         height;
+    char        *north;
+    char        *south;
+    char        *west;
+    char        *east;
+    char        *sprite;
+    int         floor_color;
+    int         ceiling_color;
+    char        **map;
+}               t_vars;
+
+void    error(int error_type);
+void    read_cub(char *file_path, t_vars *vars);
+void    init_vars(t_vars *vars);
 
 #endif
