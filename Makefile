@@ -6,14 +6,14 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 02:24:10 by mpascual          #+#    #+#              #
-#    Updated: 2020/12/10 02:45:50 by mpascual         ###   ########.fr        #
+#    Updated: 2020/12/13 22:10:51 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # To include bonus in compilation call makefile with "WITH_BONUS=1" argument
 
 NAME = cub3D
-REG_SRC_FILES = src/main.c src/utils.c src/setup.c
+REG_SRC_FILES = src/main.c src/utils.c src/setup.c src/config.c
 BONUS_SRC_FILES = src/bonus/*.o
 HEADER = cub3d.h
 LIB_PATH = libft_printf/libftprintf.a

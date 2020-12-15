@@ -6,21 +6,21 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 02:21:00 by mpascual          #+#    #+#             */
-/*   Updated: 2020/12/12 18:50:53 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:05:24 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void    *setup(t_vars *vars)
+int    setup(t_vars *vars)
 {
-    char    *bkg_addr;
+    char    *img_addr;
 
-    vars->background = mlx_new_image(vars->mlx, vars->width, vars->height);
-    bkg_addr = mlx_get_data_addr(vars->background, &vars->bpp, 
+    vars->img = mlx_new_image(vars->mlx, vars->width, vars->height);
+    img_addr = mlx_get_data_addr(vars->img, &vars->bpp, 
         &vars->size_line, &vars->endian);
-    draw_background(bkg_addr, vars);
-    return (vars->background);
+    draw_background(img_addr, vars);
+    return (read_config_file(vars));
 }
 
 int     draw_pixel(int r, int g, int b, char *img_addr)

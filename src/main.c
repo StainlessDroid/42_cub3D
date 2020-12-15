@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 01:10:24 by mpascual          #+#    #+#             */
-/*   Updated: 2020/12/12 18:49:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/12/13 18:53:49 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void    error(int error_type)
     if (error_type == 1)
         ft_printf("Memory error\n");
     else if (error_type == 2)
-        ft_printf("Map file error\n");
+        ft_printf("Map error\n");
     else if (error_type == 3)
         ft_printf("Argument error\n");
     else if (error_type == 4)
-        ft_printf("Setup error\n");
+        ft_printf("Configuration file error\n");
     exit(EXIT_FAILURE);
 }
 
@@ -45,7 +45,7 @@ int     main()
     vars->mlx = mlx_init();
     setup(vars);
     vars->win = mlx_new_window(vars->mlx, vars->width, vars->height, "cub3D");
-    mlx_put_image_to_window(vars->mlx, vars->win, vars->background, 0, 0);
+    mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
     mlx_hook(vars->win, 2, 1L<<0, close_win, vars);
     mlx_loop(vars->mlx);
     free(vars);

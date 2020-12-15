@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 02:36:14 by mpascual          #+#    #+#             */
-/*   Updated: 2020/12/12 18:38:27 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:08:13 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct  s_vars
     char                *west;
     char                *east;
     char                *sprite;
-    char                **map;
-    void                *background;
+    int                 *map;
+    void                *img;
     int                 bpp;
     int                 size_line;
     int                 endian;
@@ -42,9 +42,14 @@ typedef struct  s_vars
 }               t_vars;
 
 void    error(int error_type);
-void    read_cub(char *file_path, t_vars *vars);
+int     read_config_file(t_vars *vars);
 void    init_vars(t_vars *vars);
 void    draw_background(char *bkg_addr, t_vars *vars);
-void    *setup(t_vars *vars);
+int     setup(t_vars *vars);
+int     read_map(t_vars *vars, int fd);
+//int     map_validation(int *map);
+void    store_map(char **map, unsigned int rows, unsigned int columns,
+                 t_vars *vars);
+//int     read_config(t_vars *vars, int fd);
 
 #endif
